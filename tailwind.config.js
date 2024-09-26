@@ -54,6 +54,8 @@ export default {
       fontFamily: {
         "nico-moji": ["Nico-Moji", "serif"],
         inter: ["Inter", "sans-serif"],
+        hammersmith: ["Hammersmith One", "serif"],
+        readex: ["Readex Pro", "sans-serif"],
       },
     },
   },

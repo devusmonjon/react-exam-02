@@ -17,14 +17,16 @@ import {
 import { Button } from "@/components/ui/button";
 
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, Search, X } from "lucide-react";
 
 const Navbar = () => {
   const [selectedLocation, setSelectedLocation] = useState<string>("");
-  const [menu, setMenu] = useState<boolean>(true);
+  const [menu, setMenu] = useState<boolean>(false);
   const [menuClosing, setMenuClosing] = useState<boolean>(false);
+  const [scrollY, setScrollY] = useState<number>(0);
+  const [scrolled, setScrolled] = useState<boolean>(false);
   const { t, i18n } = useTranslation();
   const selectedLanguage = i18n.language;
 
@@ -48,27 +50,47 @@ const Navbar = () => {
     }, 300);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (scrollY > 100) {
+      setScrolled(true);
+    } else if (scrollY < 60) {
+      setScrolled(false);
+    }
+  }, [scrollY]);
+
   return (
     <>
-      <div className="flex bg-[#0D2613] py-[19px]">
+      <div className="bg-[#0D2613] py-[19px]">
         <div className="container flex justify-between items-center">
-          <div className="flex items-center gap-[32px]">
-            <h2 className="text-[32px] text-white font-nico-moji">GG</h2>
-            <span className="font-inter flex text-white items-center gap-[17px]">
+          <div className="flex items-start sm:items-center justify-center gap-[32px] flex-col sm:flex-row">
+            <h2 className="text-[22px] sm:text-[32px] text-white font-nico-moji">
+              GG
+            </h2>
+            <span className="font-inter text-[14px] flex text-white items-center gap-[17px]">
               <Phone className="text-white" />{" "}
               <a href="tel:+4904-049-950">+4904-049-950</a>
             </span>
           </div>
-          <div className="flex items-center gap-[25px] text-white font-inter text-[14px]">
+          <div className="hidden lg:flex items-center gap-[25px] text-white font-inter text-[14px]">
             <span>{t("header_discount")} </span>
             <div className="w-[2px] h-[30px] bg-[#14FF00]"></div>
             <a href="#">{t("shop_now")}</a>
           </div>
-          <div className="flex items-center gap-[44px]">
+          <div className="flex items-center gap-2 sm:gap-[44px] flex-col sm:flex-row">
             <DropdownMenu>
               <DropdownMenuTrigger className="">
                 <Button
-                  className="text-white flex items-center gap-[11px] font-inter text-[14px] font-medium"
+                  className="text-white flex items-center gap-[11px] font-inter text-[14px] font-medium px-2"
                   variant={"ghost"}
                 >
                   <ArrowDown />
@@ -112,7 +134,7 @@ const Navbar = () => {
               <DropdownMenuTrigger>
                 <Button
                   variant={"ghost"}
-                  className="text-white flex items-center gap-[11px] font-inter text-[14px] font-medium"
+                  className="text-white flex items-center gap-[11px] font-inter text-[14px] font-medium px-2"
                 >
                   <Globe />
                   <span>{t(selectedLocation || "location_text")}</span>
@@ -144,7 +166,11 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <nav className="py-[40px] sticky top-0 bg-white">
+      <nav
+        className={`sticky top-0 bg-white duration-300 z-10 ${
+          scrolled ? "shadow-lg py-[20px]" : "py-[40px]"
+        }`}
+      >
         <div className="container flex items-center justify-between">
           <Link
             to="/"
@@ -221,7 +247,7 @@ const Navbar = () => {
               <X />
             </Button>
           </div>
-          <ul className="flex item-center gap-[42px]">
+          <ul className="flex item-center gap-4 sm:gap-[42px]">
             <li>
               <button title="Search" className="w-[20px] h-[20px]">
                 <Search className="w-[20px] h-[20px]" />
@@ -232,12 +258,12 @@ const Navbar = () => {
                 <Person className="w-[20px] h-[20px]" />
               </Link>
             </li>
-            <li>
+            <li className="">
               <Link to={"/cart"} className="inline-block w-[20px] h-[20px]">
                 <Cart className="w-[20px] h-[20px]" />
               </Link>
             </li>
-            <li>
+            <li className="lg:hidden">
               <button title="menu-button" onClick={openMenu}>
                 <Menu size={20} />
               </button>

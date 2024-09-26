@@ -1,5 +1,12 @@
+import { Blogs, Hero } from "@/components/shared";
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <section id="home">
+      <Hero />
+      <Blogs />
+    </section>
+  );
 };
 
 export default Home;
