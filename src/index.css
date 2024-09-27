@@ -82,3 +82,9 @@ a.active {
     font-weight: normal;
     font-style: normal;
 }
+
+.data-\[state\=checked\]\:bg-primary[data-state="checked"] {
+    background: #0BA42D!important;
+    border-color: #0BA42D!important;
+    border-width: 0px;
+}

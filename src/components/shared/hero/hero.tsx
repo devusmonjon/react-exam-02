@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 
 const Hero = () => {
   const { t } = useTranslation();
-  console.log(t("hero.title"));
 
   return (
     <div className="w-full h-[659px] bg-[url('/hero-bg.png')] bg-no-repeat bg-cover bg-right">

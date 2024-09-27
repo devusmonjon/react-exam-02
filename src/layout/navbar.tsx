@@ -20,6 +20,8 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, Search, X } from "lucide-react";
+import { useSelector } from "react-redux";
+import { IProduct } from "@/interfaces";
 
 const Navbar = () => {
   const [selectedLocation, setSelectedLocation] = useState<string>("");
@@ -27,13 +29,17 @@ const Navbar = () => {
   const [menuClosing, setMenuClosing] = useState<boolean>(false);
   const [scrollY, setScrollY] = useState<number>(0);
   const [scrolled, setScrolled] = useState<boolean>(false);
+
+  const cart = useSelector(
+    (state: { cart: { value: IProduct[] } }) => state.cart.value
+  );
+
   const { t, i18n } = useTranslation();
   const selectedLanguage = i18n.language;
 
   const changeLanguage = (lng: string): void => {
     i18n.changeLanguage(lng);
   };
-  console.log(selectedLanguage);
 
   const closeMenu = () => {
     setMenuClosing(true);
@@ -259,8 +265,16 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="">
-              <Link to={"/cart"} className="inline-block w-[20px] h-[20px]">
+              <Link
+                to={"/cart"}
+                className="inline-block w-[20px] h-[20px] relative"
+              >
                 <Cart className="w-[20px] h-[20px]" />
+                {cart.length > 0 && (
+                  <span className="absolute -top-[12px] -right-[12px] bg-[#0BA42D] w-[20px] h-[20px] flex items-center justify-center text-center font-readex text-white rounded-full text-[14px]">
+                    {cart.length}
+                  </span>
+                )}
               </Link>
             </li>
             <li className="lg:hidden">

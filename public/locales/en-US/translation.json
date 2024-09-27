@@ -36,5 +36,14 @@
   "security_fraud_text": "Security & Fraud",
   "about_us_text": "About Us",
   "news_blog_text": "News & Blog",
-  "press_center": "Press Center"
+  "press_center": "Press Center",
+  "brand_text": "Brand",
+  "filter_text": "Filter",
+  "sort_by_text": "Sort By",
+  "price_text": "Price",
+  "default_text": "Default",
+  "colors_text": "Colors",
+  "add_to_cart_text": "Add to Cart",
+  "added_cart_text": "Added",
+  "home.title": "Home"
 }

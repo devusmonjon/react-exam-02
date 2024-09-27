@@ -36,5 +36,14 @@
   "security_fraud_text": "Xavfsizlik va firibgarlik",
   "about_us_text": "Biz haqimizda",
   "news_blog_text": "Yangiliklar va blog",
-  "press_center": "Matbuot markazi"
+  "press_center": "Matbuot markazi",
+  "brand_text": "Brend",
+  "filter_text": "Filter",
+  "sort_by_text": "Saralash",
+  "price_text": "Narx bo'yicha",
+  "default_text": "Birlamchi",
+  "colors_text": "Ranglar",
+  "add_to_cart_text": "Savatga qo'shish",
+  "added_cart_text": "Qo'shilgan",
+  "home.title": "Bosh Sahifa"
 }

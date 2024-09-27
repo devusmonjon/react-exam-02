@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Home } from "./pages";
+import { Cart, Home, Products, SingleProduct } from "./pages";
 import Layout from "./layout";
 
 import "@fontsource/inter"; // Defaults to weight 400
@@ -18,6 +18,9 @@ const App = () => {
       <Routes>
         <Route path="" element={<Layout />}>
           <Route path="" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<SingleProduct />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={"404 not found"} />
         </Route>
       </Routes>

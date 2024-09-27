@@ -23,7 +23,7 @@ const Footer = () => {
               </span>
             </div>
           </div>
-          <div className="flex md:gap-[125px] gap-[50px] sm:flex-nowrap flex-wrap justify-between sm:w-min w-full">
+          <div className="flex md:gap-[125px] gap-[50px] flex-wrap justify-between w-full">
             <div className="font-inter whitespace-nowrap">
               <h1 className="font-bold text-[24px] capitalize">
                 {t("services_text")}
@@ -120,7 +120,7 @@ const Footer = () => {
             <span className="font-semibold text-[18px] font-inter">
               {t("terms_of_service")}
             </span>
-            <span className="font-semibold text-[16px] font-inter">
+            <span className="font-semibold text-[16px] font-inter whitespace-pre-wrap">
               {t("copyright")}{" "}
               <span className="font-normal font-nico-moji">GameGeek</span> |{" "}
               {new Date().getFullYear()}
