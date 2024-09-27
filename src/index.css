@@ -88,3 +88,7 @@ a.active {
     border-color: #0BA42D!important;
     border-width: 0px;
 }
+
+.scroll-hide::-webkit-scrollbar {
+    display: none;
+}

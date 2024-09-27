@@ -17,7 +17,7 @@
     tr {
         margin-bottom: 1em;
     }
-    .flex {
+    table .flex {
         flex-direction: column;
     }
     .w-\[175px\] {
