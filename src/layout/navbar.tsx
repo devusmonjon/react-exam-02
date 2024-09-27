@@ -252,6 +252,68 @@ const Navbar = () => {
             >
               <X />
             </Button>
+            <ul className="flex flex-col item-center gap-[40px] py-[100px] pl-[50px] w-full">
+              <li className="w-full">
+                <NavLink
+                  to={"/products"}
+                  className={
+                    "text-[#0D2612] font-inter font-medium text-[16px] w-full"
+                  }
+                >
+                  {t("products")}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/brands"}
+                  className={
+                    "text-[#0D2612] font-inter font-medium text-[16px]"
+                  }
+                >
+                  {t("brands")}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/Whats-new"}
+                  className={
+                    "text-[#0D2612] font-inter font-medium text-[16px]"
+                  }
+                >
+                  {t("whats_new")}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/Sales"}
+                  className={
+                    "text-[#0D2612] font-inter font-medium text-[16px]"
+                  }
+                >
+                  {t("sales")}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/help"}
+                  className={
+                    "text-[#0D2612] font-inter font-medium text-[16px]"
+                  }
+                >
+                  {t("help")}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={"/about"}
+                  className={
+                    "text-[#0D2612] font-inter font-medium text-[16px]"
+                  }
+                >
+                  {t("about")}
+                </NavLink>
+              </li>
+            </ul>
           </div>
           <ul className="flex item-center gap-4 sm:gap-[42px]">
             <li>
